@@ -15,6 +15,9 @@
     <p>{{ item.title }}</p>
     <p>{{ item.content }}</p>
     <p>{{ item.created_at | date:"d-m-Y H:i" }}</p>
+    {% if item.photo %}
+    <p><img src={{ item.photo.url }} alt="img"></p>
+    {% endif %}
     <hr>
   </div>
 
