@@ -10,4 +10,5 @@ class NewsForm(forms.Form):
                                                            "rows": 5}))
     is_published = forms.BooleanField(label='Опубликовано', initial=True)
     category = forms.ModelChoiceField(queryset=Category.objects.all(), label='Категория',
-                                      empty_label='Выберите категорию')
+                                      empty_label='Выберите категорию',
+                                      widget=forms.Select(attrs={"class": "form-control"}))
