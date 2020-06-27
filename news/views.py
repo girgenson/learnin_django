@@ -30,12 +30,13 @@ def view_news(request, news_id):
 
 def add_news(request):
     if request.method == 'POST':
-        form = NewsForm(request.POST) #  Форма, связанная с данными
-        #  Пользователю не нужно будет ее повторно заполнять при неверном заполнении
+        form = NewsForm(request.POST)  # Форма, связанная с данными
+        # Пользователю не нужно будет ее повторно заполнять при неверном заполнении
         if form.is_valid():
             # print(form.cleaned_data)
-            news = News.objects.create(**form.cleaned_data)
+            # news = News.objects.create(**form.cleaned_data)
+            news = form.save()
             return redirect(news)
     else:
-        form = NewsForm() #  Форма, не связанная с данными
+        form = NewsForm()  # Форма, не связанная с данными
     return render(request, 'news/add_news.html', {'form': form})
