@@ -19,11 +19,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
-
+from news.views import HomeNews
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', HomeNews.as_view(), name='home'),
     path('news/', include('news.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
