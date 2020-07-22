@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 from news.views import HomeNews
+from news.views import *
 
 
 urlpatterns = [
@@ -27,6 +28,8 @@ urlpatterns = [
     path('', HomeNews.as_view(), name='home'),
     path('news/', include('news.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('register/', register, name='register'),
+    path('login/', login, name='login'),
 ]
 
 if settings.DEBUG:
