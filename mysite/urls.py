@@ -19,7 +19,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
-from news.views import HomeNews
 from news.views import *
 
 
@@ -29,7 +28,8 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
     path('register/', register, name='register'),
-    path('login/', login, name='login'),
+    path('login/', user_login, name='login'),
+    path('logout/', user_logout, name='logout'),
 ]
 
 if settings.DEBUG:
