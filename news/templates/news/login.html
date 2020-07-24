@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Логин  ::  {{ block.super }}
+    Войти  ::  {{ block.super }}
 {% endblock title %}
 
 {% block sidebar %}
@@ -11,6 +11,11 @@
 
 
 {% block content %}
-    <h1>Логин</h1>
+    <h1>Войти</h1>
 
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-primary btn-block">Войти</button>
+    </form>
 {% endblock content %}
