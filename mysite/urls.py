@@ -23,6 +23,7 @@ from news.views import *
 
 
 urlpatterns = [
+    path('test/', test, name='test'),
     path('admin/', admin.site.urls),
     path('', HomeNews.as_view(), name='home'),
     path('news/', include('news.urls')),
