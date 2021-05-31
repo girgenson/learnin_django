@@ -207,3 +207,5 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+CAPTCHA_LETTER_ROTATION = False

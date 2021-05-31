@@ -1,15 +1,15 @@
 import os
 
-from django.shortcuts import render, redirect
-from . models import News, Category
-from . forms import NewsForm, UserRegisterForm, UserLoginForm, ContactForm
-from django.views.generic import ListView, DetailView, CreateView
-from . utils import MyMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.core.mail import send_mail
+from django.views.generic import ListView, DetailView, CreateView
+from django.shortcuts import render, redirect
 from dotenv import load_dotenv
+from . forms import NewsForm, UserRegisterForm, UserLoginForm, ContactForm
+from . models import News, Category
+from . utils import MyMixin
 
 
 load_dotenv()
@@ -59,10 +59,10 @@ def contact(request):
             else:
                 messages.error(request, 'Ошибка отправки')
         else:
-            messages.error(request, 'Ошибка отправки')
+            messages.error(request, 'Ошибка валидации')
     else:
         form = ContactForm()
-    return render(request, 'news/contact.html', {'form': form})
+    return render(request, 'news/test.html', {'form': form})
 
 
 class HomeNews(MyMixin, ListView):
