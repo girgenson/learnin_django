@@ -6,7 +6,8 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 /media
-# /static
+/static
+/photos
 /.idea
 /venv
 /env
@@ -16,3 +17,4 @@ TODO.py
 *.json
 *.txt
 /win_env
+/static/

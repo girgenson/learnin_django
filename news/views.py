@@ -47,7 +47,7 @@ def register(request):
     return render(request, 'news/register.html', {'form': form})
 
 
-def test(request):
+def contact(request):
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
         if form.is_valid():
@@ -55,14 +55,14 @@ def test(request):
                              [os.getenv('REC_1'), ], fail_silently=True)
             if mail:  # Если отправлено не 0 писем
                 messages.success(request, 'Письмо отправлено')
-                return redirect('test')
+                return redirect('contact')
             else:
                 messages.error(request, 'Ошибка отправки')
         else:
             messages.error(request, 'Ошибка отправки')
     else:
         form = ContactForm()
-    return render(request, 'news/test.html', {'form': form})
+    return render(request, 'news/contact.html', {'form': form})
 
 
 class HomeNews(MyMixin, ListView):
