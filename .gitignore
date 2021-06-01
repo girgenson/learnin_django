@@ -18,3 +18,4 @@ TODO.py
 *.txt
 /win_env
 mysite.git
+/django_cache

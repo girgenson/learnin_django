@@ -1,12 +1,13 @@
 import debug_toolbar
 
+from django.views.decorators.cache import cache_page
 from django.urls import path, include
 from .views import *
 
 
 urlpatterns = [
     # path('', index, name='home'),
-    path('news/', HomeNews.as_view(), name='home'),
+    path('', cache_page(60)(HomeNews.as_view()), name='home'),
     # path('category/<int:category_id>', get_category, name='category'),
     path('news/category/<int:category_id>/', NewsByCategory.as_view(), name='category'),
     # path('<int:news_id>', view_news, name='view_news'),
